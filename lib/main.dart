@@ -22,7 +22,9 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  State<StatefulWidget> createState() {
+    return _SplashScreenState();  
+  }
 }
 
 class _SplashScreenState extends State<SplashScreen> {
@@ -107,8 +109,8 @@ class _WebViewAppState extends State<WebViewApp> {
 
   void _retry() {
     setState(() {
-      hasError = false; // 🔥 Pehle error hatao
-      isLoading = true; // 🔥 Loading indicator dikhao
+      hasError = false; 
+      isLoading = true; 
     });
 
     _controller.reload();
@@ -122,7 +124,7 @@ class _WebViewAppState extends State<WebViewApp> {
         child: Stack(
           children: [
             if (!hasError &&
-                !isLoading) // 🔥 Jab tak load ho raha hai tab tak WebView na dikhao
+                !isLoading) 
               WebViewWidget(controller: _controller),
             if (isLoading)
               const Center(
